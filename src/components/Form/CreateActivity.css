@@ -1,0 +1,21 @@
+.formActivity {
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  top: 15%;
+  right: 1.5%;
+  background-color: rgba(66, 50, 138, 0.8);
+  font-size: 20px;
+  max-width: 320px ;
+}
+
+.formActivity p {
+  color: red;
+  margin-top: 3px;
+  font-size: 18px;
+}
+
+.formActivity div {
+  margin: 13px;
+  margin-top: -5px;
+}
