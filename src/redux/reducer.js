@@ -133,7 +133,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
           ...state,
           activities: [],
         };
-      } else if (payload === "detail") {
+      } else if (payload === "details") {
         return {
           ...state,
           detail: [],

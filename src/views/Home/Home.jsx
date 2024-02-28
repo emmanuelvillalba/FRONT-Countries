@@ -58,6 +58,7 @@ const Home = () => {
     dispatch(dispatch(findAllCountries()))
   }
 
+  const home = home
   useEffect(() => {
     dispatch(findAllCountries(0, 10))
     dispatch(findAllActivities())
