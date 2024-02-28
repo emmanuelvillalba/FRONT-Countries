@@ -127,6 +127,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
           ...state,
           countries: [],
           allCountries: [],
+          activities: [],
         };
       } else if (payload === "activities") {
         return {
