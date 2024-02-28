@@ -13,7 +13,7 @@ const Activities = () => {
     dispatch(findAllActivities())
   }
 
-  const activities = activities
+  const activities = "activities"
   useEffect(() => {
     return dispatch(cleanerState(activities))
   }, [])
