@@ -188,7 +188,6 @@ export const deleteActivity = (id) => {
 };
 
 export const cleanerState = (component) => {
-  console.log("ESTE ES EL NOMBRE DEL ESTADO QUE LLEGA:", component);
   return {
     type: CLEANER_STATE,
     payload: component,

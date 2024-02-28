@@ -123,24 +123,21 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case CLEANER_STATE:
       if (payload === "home") {
-        console.log("FUNCIONA EN HOME");
         return {
           ...state,
-          // countries: [],
-          // allCountries: [],
-          // activities: [],
+          countries: [],
+          allCountries: [],
+          activities: [],
         };
       } else if (payload === "activities") {
-        console.log("FUNCIONA EN ACTIVITIES");
         return {
           ...state,
-          // activities: [],
+          activities: [],
         };
       } else if (payload === "details") {
-        console.log("FUNCIONA EN DETAILS");
         return {
           ...state,
-          // detail: [],
+          detail: [],
         };
       }
 
