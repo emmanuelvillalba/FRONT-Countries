@@ -1,5 +1,6 @@
 import "./Activities.css"
 import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import SearchBar from "../../components/SearchBar/SearchBar"
 import ContainerActivities from "../../components/CardContainer/ContainerActivities"
 import CreateActivity from "../../components/Form/CreateActivity"
