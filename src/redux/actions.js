@@ -13,6 +13,7 @@ import {
   FIND_DETAIL,
   CREATE_ACTIVITY,
   DELETE_ACTIVITY,
+  CLEANER_STATE,
 } from "./actions-types";
 
 export const findAllCountries = (start, end) => {
@@ -183,5 +184,11 @@ export const deleteActivity = (id) => {
         window.alert(error.message);
       }
     }
+  };
+};
+
+export const cleanerState = () => {
+  return {
+    type: CLEANER_STATE,
   };
 };

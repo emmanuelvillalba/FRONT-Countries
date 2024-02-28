@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import SearchBar from "../../components/SearchBar/SearchBar"
 import ContainerActivities from "../../components/CardContainer/ContainerActivities"
 import CreateActivity from "../../components/Form/CreateActivity"
-import { findAllActivities, findNameActivities } from '../../redux/actions'
+import { findAllActivities, findNameActivities, cleanerState } from '../../redux/actions'
 
 const Activities = () => {
   const dispatch = useDispatch()
@@ -11,6 +11,10 @@ const Activities = () => {
   const allActivities = () => {
     dispatch(findAllActivities())
   }
+
+  useEffect(() => {
+    return dispatch(cleanerState())
+  }, [])
 
   return (
     <div>

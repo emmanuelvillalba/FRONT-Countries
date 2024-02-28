@@ -11,6 +11,7 @@ import {
   FIND_DETAIL,
   CREATE_ACTIVITY,
   DELETE_ACTIVITY,
+  CLEANER_STATE,
 } from "./actions-types";
 
 const initialState = {
@@ -118,6 +119,15 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         activities: payload,
+      };
+
+    case CLEANER_STATE:
+      return {
+        ...state,
+        countries: [],
+        allCountries: [],
+        activities: [],
+        detail: [],
       };
 
     default:

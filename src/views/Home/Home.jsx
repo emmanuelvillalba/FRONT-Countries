@@ -13,7 +13,8 @@ import {
   filterContinent,
   filterActivity,
   findAllActivities,
-  cleanerFilter
+  cleanerFilter,
+  cleanerState
 } from '../../redux/actions'
 
 const Home = () => {
@@ -60,6 +61,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(findAllCountries(0, 10))
     dispatch(findAllActivities())
+    return dispatch(cleanerState())
   }, [])
 
   return (

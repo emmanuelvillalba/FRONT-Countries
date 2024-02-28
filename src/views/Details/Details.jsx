@@ -2,10 +2,9 @@ import "./Details.css"
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { findDetail } from "../../redux/actions"
 import { Link } from "react-router-dom"
 import { ACTIVITIES } from '../../helpers/PATHROUTES'
-import { findNameActivities } from '../../redux/actions'
+import { findDetail, findNameActivities, cleanerState } from '../../redux/actions'
 
 const Details = () => {
   const { id } = useParams()
@@ -15,6 +14,10 @@ const Details = () => {
   useEffect(() => {
     dispatch(findDetail(id))
   }, [id])
+
+  useEffect(() => {
+    return dispatch(cleanerState())
+  }, [])
 
   return (
     <div class="card">
