@@ -16,7 +16,7 @@ const Details = () => {
   }, [id])
 
   useEffect(() => {
-    return dispatch(cleanerState())
+    return dispatch(cleanerState(detail))
   }, [])
 
   return (

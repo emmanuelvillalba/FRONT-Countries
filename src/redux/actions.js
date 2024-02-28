@@ -187,8 +187,9 @@ export const deleteActivity = (id) => {
   };
 };
 
-export const cleanerState = () => {
+export const cleanerState = (component) => {
   return {
     type: CLEANER_STATE,
+    payload: component,
   };
 };
