@@ -75,7 +75,7 @@ const FormActivity = () => {
             <div className='formSeason'>
                 <label>Season:</label>
                 <select name="season" onChange={handleChange} onBlur={handleError} value={activityDate.season}>
-                    <option value="">--Select--</option>
+                    <option value=""> Select </option>
                     <option value="Summer">Summer</option>
                     <option value="Fall">Fall</option>
                     <option value="Winter">Winter</option>

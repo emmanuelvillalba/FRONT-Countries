@@ -9,7 +9,8 @@ export default (activityDate, fieldName) => {
     fieldName === "difficulty" &&
     (!activityDate.difficulty ||
       activityDate.difficulty < 1 ||
-      activityDate.difficulty > 5)
+      activityDate.difficulty > 5 ||
+      isNaN(Number(activityDate.difficulty)))
   ) {
     errors.difficulty = "Number between 1 and 5";
   }
