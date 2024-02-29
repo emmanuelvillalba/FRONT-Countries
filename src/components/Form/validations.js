@@ -9,10 +9,17 @@ export default (activityDate, fieldName) => {
     fieldName === "difficulty" &&
     (!activityDate.difficulty ||
       activityDate.difficulty < 1 ||
-      activityDate.difficulty > 5 ||
-      isNaN(Number(activityDate.difficulty)))
+      activityDate.difficulty > 5)
   ) {
     errors.difficulty = "Number between 1 and 5";
+  }
+
+  const integerRegex = /^\d+$/;
+  if (
+    fieldName === "difficulty" &&
+    !integerRegex.test(activityDate.difficulty)
+  ) {
+    errors.difficulty = "The number must be integer";
   }
 
   if (
