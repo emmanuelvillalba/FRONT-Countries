@@ -41,7 +41,7 @@ const FormActivity = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (Object.keys(errors).length === 0) {
+        // if (Object.keys(errors).length === 0) {
             dispatch(createActivity(activityDate));
             setActivityDate({
                 name: '',
@@ -50,18 +50,14 @@ const FormActivity = () => {
                 season: '',
                 countries: ""
             });
-        } else {
-            alert('Complete all data correctly');
-        }
+        // } else {
+        //     alert('Complete all data correctly');
+        // }
     }
 
     const isFormValid = () => {
         const currentErrors = validations(activityDate);
-        if (currentErrors.name === "" && currentErrors.difficulty === "" && currentErrors.duration === "" && currentErrors.season === "" && currentErrors.countries === "") {
-            return true
-        } else {
-            return false
-        }
+        return currentErrors.name === "" && currentErrors.difficulty === "" && currentErrors.duration === "" && currentErrors.season === "" && currentErrors.countries === ""
     }
     console.log("ESTE ES EL ESTADO isFormValid:", isFormValid);
 
