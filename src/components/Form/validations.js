@@ -59,7 +59,7 @@ export default (activityDate, fieldName) => {
   ) {
     errors.countries = "Assign at least one country ID";
   } else {
-    errors.countries = [];
+    errors.countries = "";
   }
 
   return errors;

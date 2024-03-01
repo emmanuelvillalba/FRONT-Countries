@@ -8,20 +8,20 @@ const FormActivity = () => {
     const dispatch = useDispatch();
 
     const [activityDate, setActivityDate] = useState({
-        name: '',
-        difficulty: '',
-        duration: '',
-        season: '',
+        name: "",
+        difficulty: "",
+        duration: "",
+        season: "",
         countries: []
     });
     console.log("ESTE ES EL ESTADO activityDate:", errors);
 
     const [errors, setErrors] = useState({
-        name: '',
-        difficulty: '',
-        duration: '',
-        season: '',
-        countries: []
+        name: "",
+        difficulty: "",
+        duration: "",
+        season: "",
+        countries: ""
     });
     console.log("ESTE ES EL ESTADO ERROR:", errors);
 
@@ -48,7 +48,7 @@ const FormActivity = () => {
                 difficulty: '',
                 duration: '',
                 season: '',
-                countries: []
+                countries: ""
             });
         } else {
             alert('Complete all data correctly');
@@ -57,7 +57,7 @@ const FormActivity = () => {
 
     const isFormValid = () => {
         const currentErrors = validations(activityDate);
-        if (currentErrors.name === "" && currentErrors.difficulty === "" && currentErrors.duration === "" && currentErrors.season === "" && currentErrors.countries === "[]") {
+        if (currentErrors.name === "" && currentErrors.difficulty === "" && currentErrors.duration === "" && currentErrors.season === "" && currentErrors.countries === "") {
             return true
         } else {
             return false
