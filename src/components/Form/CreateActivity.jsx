@@ -102,7 +102,7 @@ const FormActivity = () => {
                 <input type="text" name="countries" onChange={handleChange} onBlur={handleError} value={activityDate.countries} placeholder="Enter country ID (3 letters)" />
                 {errors.countries && <p>{errors.countries}</p>}
             </div>
-            <button className="btn-createActivity" type="submit" disabled={!isFormValid()}>Create Activity</button>
+            <button className="btn-createActivity" type="submit" disabled={!isFormValid}>Create Activity</button>
         </form>
     );
 
