@@ -22,6 +22,7 @@ const Home = () => {
   const dispatch = useDispatch()
   const countries = useSelector(state => state.countries)
   const activities = useSelector(state => state.activities)
+  const isLoading = useSelector(state => state.isLoading)
 
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 10
@@ -122,16 +123,21 @@ const Home = () => {
           <button className="all-countries" onClick={handlerCountries}>All Countries</button>
         </div>
       </div>
-      <div className="containerCountry">
-        {countries
-          ?.slice((currentPage - 1) * cardsPerPage, currentPage * cardsPerPage)
-          .map((country) => {
-            return <CardCountry country={country} key={country.id} />;
-          })}
-      </div>
-      <div>
-        <Pagination currentPage={currentPage} totalPages={Math.ceil(countries.length / cardsPerPage)} changePage={changePage} />
-      </div>
+      {isLoading ? (<div className="loader"></div>
+      ) : (
+        <div>
+          <div className="containerCountry">
+            {countries
+              ?.slice((currentPage - 1) * cardsPerPage, currentPage * cardsPerPage)
+              .map((country) => {
+                return <CardCountry country={country} key={country.id} />;
+              })}
+          </div>
+          <div>
+            <Pagination currentPage={currentPage} totalPages={Math.ceil(countries.length / cardsPerPage)} changePage={changePage} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
