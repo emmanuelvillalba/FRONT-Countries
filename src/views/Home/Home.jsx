@@ -31,18 +31,21 @@ const Home = () => {
 
   const handleAlphabetical = (event) => {
     dispatch(orderAlphabetical(event.target.value))
-
+    setCurrentPage(1)
   }
   const handlePopulation = (event) => {
     dispatch(orderPopulation(event.target.value))
+    setCurrentPage(1)
   }
 
   const handleFilterContinent = (event) => {
     dispatch(filterContinent(event.target.value));
+    setCurrentPage(1)
   }
 
   const handleFilterActivity = (event) => {
     dispatch(filterActivity(event.target.value));
+    setCurrentPage(1)
   }
 
   const handlerCleaner = () => {
@@ -55,7 +58,7 @@ const Home = () => {
   }
 
   const handlerCountries = () => {
-    dispatch(dispatch(findAllCountries()))
+    dispatch(findAllCountries())
   }
 
   useEffect(() => {
