@@ -49,11 +49,7 @@ const FormActivity = () => {
 
     const isFormValid = () => {
         const currentErrors = validations(activityDate);
-        if (!currentErrors.name && !currentErrors.difficulty && !currentErrors.duration && !currentErrors.season && !currentErrors.countries) {
-            return true
-        } else {
-            return false
-        }
+        return !currentErrors.name && !currentErrors.difficulty && !currentErrors.duration && !currentErrors.season && !currentErrors.countries
     }
 
     return (
@@ -92,7 +88,7 @@ const FormActivity = () => {
                 <input type="text" name="countries" onChange={handleChange} onBlur={handleError} value={activityDate.countries} placeholder="Enter country ID (3 letters)" />
                 {errors.countries && <p>{errors.countries}</p>}
             </div>
-            <button className="btn-createActivity" type="submit" disabled={isFormValid() === "false"}>Create Activity</button>
+            <button className="btn-createActivity" type="submit" disabled={!isFormValid}>Create Activity</button>
         </form>
     );
 

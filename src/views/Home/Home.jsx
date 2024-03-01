@@ -23,7 +23,7 @@ const Home = () => {
   const countries = useSelector(state => state.countries)
   const activities = useSelector(state => state.activities)
 
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 10
   const changePage = (num) => {
     setCurrentPage(num);
