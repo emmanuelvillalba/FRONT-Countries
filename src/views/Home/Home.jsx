@@ -1,4 +1,5 @@
 import "./Home.css"
+import "../../assets/loader.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 
