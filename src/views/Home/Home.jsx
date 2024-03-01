@@ -72,7 +72,7 @@ const Home = () => {
   return (
     <div>
       <div className="searchbar">
-        <SearchBar action={findNameCountries} />
+        <SearchBar action={findNameCountries} setCurrentPage={setCurrentPage} />
       </div>
       <div className="all-filters">
         <div className="orderAlphabetical">
