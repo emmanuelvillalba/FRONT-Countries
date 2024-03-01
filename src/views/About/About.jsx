@@ -1,11 +1,9 @@
 import './About.css'
-import "../../assets/loader.css"
 import AboutText from "./AboutText.jsx"
 
 const About = () => {
     return (
         <div className="containerAbout">
-            <div className="loader"></div>
             <div>
                 <AboutText />
             </div>
