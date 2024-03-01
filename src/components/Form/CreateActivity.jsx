@@ -48,8 +48,8 @@ const FormActivity = () => {
     }
 
     const isFormValid = () => {
-        const currentErrors = validations(activityDate);
-        return !currentErrors.name && !currentErrors.difficulty && !currentErrors.duration && !currentErrors.season && !currentErrors.countries
+        // const currentErrors = validations(activityDate);
+        return !errors.name && !errors.difficulty && !errors.duration && !errors.season && !errors.countries
     }
 
     return (
