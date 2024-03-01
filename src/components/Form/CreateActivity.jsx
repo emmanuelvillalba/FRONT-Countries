@@ -14,6 +14,7 @@ const FormActivity = () => {
         season: '',
         countries: []
     });
+    console.log("ESTE ES EL ESTADO activityDate:", errors);
 
     const [errors, setErrors] = useState({
         name: '',
@@ -22,6 +23,7 @@ const FormActivity = () => {
         season: '',
         countries: []
     });
+    console.log("ESTE ES EL ESTADO ERROR:", errors);
 
     const handleChange = (event) => {
         setActivityDate({
@@ -55,8 +57,14 @@ const FormActivity = () => {
 
     const isFormValid = () => {
         const currentErrors = validations(activityDate);
-        return currentErrors.name === "" && currentErrors.difficulty === "" && currentErrors.duration === "" && currentErrors.season === "" && currentErrors.countries === "[]"
+        if (currentErrors.name === "" && currentErrors.difficulty === "" && currentErrors.duration === "" && currentErrors.season === "" && currentErrors.countries === "[]") {
+            return true
+        } else {
+            return false
+        }
     }
+    console.log("ESTE ES EL ESTADO isFormValid:", isFormValid);
+
 
     return (
         <form className="formActivity" onSubmit={handleSubmit}>
