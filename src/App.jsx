@@ -1,5 +1,5 @@
 import "./App.css"
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, HashRouter } from "react-router-dom";
 import { HOME, DETAILID, ACTIVITIES, ABOUT } from './helpers/PATHROUTES';
 import About from "./views/About/About"
 import Activities from "./views/Activities/Activities"
@@ -13,16 +13,18 @@ function App() {
 
   return (
     <>
-      {location.pathname !== "/" && (
-        <Nav />
-      )}
-      <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path={HOME} element={<Home />} />
-        <Route path={DETAILID(":id")} element={<Details />} />
-        <Route path={ACTIVITIES} element={<Activities />} />
-        <Route path={ABOUT} element={<About />} />
-      </Routes>
+      <HashRouter>
+        {location.pathname !== "/" && (
+          <Nav />
+        )}
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path={HOME} element={<Home />} />
+          <Route path={DETAILID(":id")} element={<Details />} />
+          <Route path={ACTIVITIES} element={<Activities />} />
+          <Route path={ABOUT} element={<About />} />
+        </Routes>
+      </HashRouter>
     </>
   )
 }
