@@ -14,7 +14,6 @@ const FormActivity = () => {
         season: "",
         countries: []
     });
-    console.log("ESTE ES EL ESTADO activityDate:", errors);
 
     const [errors, setErrors] = useState({
         name: "",
@@ -23,7 +22,6 @@ const FormActivity = () => {
         season: "",
         countries: ""
     });
-    console.log("ESTE ES EL ESTADO ERROR:", errors);
 
     const handleChange = (event) => {
         setActivityDate({
@@ -42,14 +40,14 @@ const FormActivity = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // if (Object.keys(errors).length === 0) {
-            dispatch(createActivity(activityDate));
-            setActivityDate({
-                name: '',
-                difficulty: '',
-                duration: '',
-                season: '',
-                countries: ""
-            });
+        dispatch(createActivity(activityDate));
+        setActivityDate({
+            name: '',
+            difficulty: '',
+            duration: '',
+            season: '',
+            countries: ''
+        });
         // } else {
         //     alert('Complete all data correctly');
         // }
@@ -59,8 +57,6 @@ const FormActivity = () => {
         const currentErrors = validations(activityDate);
         return currentErrors.name === "" && currentErrors.difficulty === "" && currentErrors.duration === "" && currentErrors.season === "" && currentErrors.countries === ""
     }
-    console.log("ESTE ES EL ESTADO isFormValid:", isFormValid);
-
 
     return (
         <form className="formActivity" onSubmit={handleSubmit}>
@@ -98,7 +94,7 @@ const FormActivity = () => {
                 <input type="text" name="countries" onChange={handleChange} onBlur={handleError} value={activityDate.countries} placeholder="Enter country ID (3 letters)" />
                 {errors.countries && <p>{errors.countries}</p>}
             </div>
-            <button className="btn-createActivity" type="submit" disabled={isFormValid() === "false"}>Create Activity</button>
+            <button className="btn-createActivity" type="submit" disabled={!isFormValid()}>Create Activity</button>
         </form>
     );
 
