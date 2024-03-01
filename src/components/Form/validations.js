@@ -1,47 +1,48 @@
 export default (activityDate, fieldName) => {
   let errors = {};
-
-  if (fieldName === "name" && !activityDate.name) {
+  //fieldName === "name" &&
+  if (!activityDate.name) {
     errors.name = "The activity must have a name";
   }
 
   const lettersOnlyRegex = /^[a-zA-Z]+$/;
-
-  if (fieldName === "name" && !lettersOnlyRegex.test(activityDate.name)) {
+  //fieldName === "name" &&
+  if (!lettersOnlyRegex.test(activityDate.name)) {
     errors.name = "Only letters allowed";
   }
 
   if (
-    fieldName === "difficulty" &&
-    (!activityDate.difficulty ||
-      activityDate.difficulty < 1 ||
-      activityDate.difficulty > 5)
+    !activityDate.difficulty ||
+    activityDate.difficulty < 1 ||
+    activityDate.difficulty > 5
+    // fieldName === "difficulty" &&
+    // (!activityDate.difficulty ||
+    //   activityDate.difficulty < 1 ||
+    //   activityDate.difficulty > 5)
   ) {
     errors.difficulty = "Number between 1 and 5";
   }
 
   const integerRegex = /^\d+$/;
-  if (
-    fieldName === "difficulty" &&
-    !integerRegex.test(activityDate.difficulty)
-  ) {
+  //fieldName === "difficulty" &&
+  if (!integerRegex.test(activityDate.difficulty)) {
     errors.difficulty = "The number must be integer";
   }
 
-  if (
-    fieldName === "duration" &&
-    (!activityDate.duration || isNaN(Number(activityDate.duration)))
+  if (!activityDate.duration || isNaN(Number(activityDate.duration))
+    // fieldName === "duration" &&
+    // (!activityDate.duration || isNaN(Number(activityDate.duration)))
   ) {
     errors.duration = "Enter a number";
   }
-
-  if (fieldName === "season" && !activityDate.season) {
+//fieldName === "season" && 
+  if (!activityDate.season) {
     errors.season = "Season is required";
   }
 
-  if (
-    fieldName === "countries" &&
-    (!activityDate.countries || activityDate.countries.length === 0)
+  if (!activityDate.countries || activityDate.countries.length === 0
+    // fieldName === "countries" &&
+    // (!activityDate.countries || activityDate.countries.length === 0)
   ) {
     errors.countries = "Assign at least one country ID";
   }
