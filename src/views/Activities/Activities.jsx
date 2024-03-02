@@ -16,6 +16,7 @@ const Activities = () => {
   }
 
   useEffect(() => {
+    dispatch(findAllActivities())
     return () => { dispatch(cleanerState("activities")) }
   }, [])
 
@@ -25,10 +26,10 @@ const Activities = () => {
       ) : (
         <div className="containerActivities">
           <ContainerActivities />
-          <CreateActivity />
-          <button className="btn-allActivities" onClick={allActivities}> All Activities </button>
         </div>
       )}
+      <CreateActivity />
+      <button className="btn-allActivities" onClick={allActivities}> All Activities </button>
       <div className="searchbar">
         <SearchBar action={findNameActivities} />
       </div>
