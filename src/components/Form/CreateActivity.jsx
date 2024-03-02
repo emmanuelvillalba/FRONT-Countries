@@ -16,11 +16,11 @@ const FormActivity = () => {
     });
 
     const [errors, setErrors] = useState({
-        name: "",
-        difficulty: "",
-        duration: "",
-        season: "",
-        countries: ""
+        name: null,
+        difficulty: null,
+        duration: null,
+        season: null,
+        countries: null
     });
 
     const handleChange = (event) => {
