@@ -19,7 +19,7 @@ import {
 
 export const findAllCountries = (start, end) => {
   return async (dispatch) => {
-    // dispatch(loader(true));
+    dispatch(loader(true));
     try {
       const { data } = await axios.get(URL_SERVER + "/countries");
       let payloadData = data;
@@ -28,13 +28,13 @@ export const findAllCountries = (start, end) => {
         payloadData = data.slice(start, end);
       }
 
-      // dispatch(loader(false));
+      dispatch(loader(false));
       return dispatch({
         type: FIND_ALLCOUNTRY,
         payload: payloadData,
       });
     } catch (error) {
-      // dispatch(loader(false));
+      dispatch(loader(false));
       if (error.response.data.error) {
         window.alert(error.response.data.error);
       } else {
@@ -46,16 +46,16 @@ export const findAllCountries = (start, end) => {
 
 export const findAllActivities = () => {
   return async (dispatch) => {
-    dispatch(loader(true));
+    // dispatch(loader(true));
     try {
       const { data } = await axios.get(URL_SERVER + "/activities");
-      dispatch(loader(false)); 
+      // dispatch(loader(false)); 
       return dispatch({
         type: FIND_ALLACTIVITY,
         payload: data,
       });
     } catch (error) {
-      dispatch(loader(false)); 
+      // dispatch(loader(false)); 
       if (error.response.data.error) {
         window.alert(error.response.data.error);
       } else {

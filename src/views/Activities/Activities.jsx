@@ -15,9 +15,9 @@ const Activities = () => {
     dispatch(findAllActivities())
   }
 
-  // useEffect(() => {
-  //   return () => { dispatch(cleanerState("activities")) }
-  // }, [])
+  useEffect(() => {
+    return () => { dispatch(cleanerState("activities")) }
+  }, [])
 
   return (
     <div>
