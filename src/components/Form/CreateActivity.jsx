@@ -40,22 +40,23 @@ const FormActivity = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // if (Object.keys(errors).length === 0) {
-        dispatch(createActivity(activityDate));
-        setActivityDate({
-            name: '',
-            difficulty: '',
-            duration: '',
-            season: '',
-            countries: []
-        });
-        // } else {
-        //     alert('Complete all data correctly');
-        // }
+        if (!errors.name && !errors.difficulty && !errors.duration && !errors.season && !errors.countries) {
+            dispatch(createActivity(activityDate));
+            setActivityDate({
+                name: '',
+                difficulty: '',
+                duration: '',
+                season: '',
+                countries: []
+            });
+        } else {
+            alert('Complete all data correctly');
+        }
     }
 
     const isFormValid = () => {
         // const currentErrors = validations(activityDate);
-        return errors.name === "" && errors.difficulty === "" && errors.duration === "" && errors.season === "" && errors.countries === ""
+        return !errors.name && !errors.difficulty && !errors.duration && !errors.season && !errors.countries
     }
 
     return (
