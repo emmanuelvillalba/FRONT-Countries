@@ -1,18 +1,28 @@
 import "./Activities.css"
 import "../../assets/loader.css"
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 import SearchBar from "../../components/SearchBar/SearchBar"
 import ContainerActivities from "../../components/CardContainer/ContainerActivities"
 import CreateActivity from "../../components/Form/CreateActivity"
-import { findAllActivities, findNameActivities } from '../../redux/actions'
+import { findAllActivities, findNameActivities, cleanerState } from '../../redux/actions'
 
 const Activities = () => {
+  const activities = useSelector(state => state.activities)
   const isLoading = useSelector(state => state.isLoading)
   const dispatch = useDispatch()
 
   const allActivities = () => {
     dispatch(findAllActivities())
   }
+
+  useEffect(() => {
+    if (activities.length === 0) {
+      dispatch(findAllActivities())
+    }
+    console.log("Estado activities:", activities, "length:", activities.length);
+    return () => { dispatch(cleanerState("activities")) }
+  }, [])
 
   return (
     <div>
@@ -28,6 +38,7 @@ const Activities = () => {
         <SearchBar action={findNameActivities} />
       </div>
     </div>
+
   )
 }
 
