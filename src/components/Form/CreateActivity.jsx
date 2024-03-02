@@ -40,24 +40,25 @@ const FormActivity = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // if (Object.keys(errors).length === 0) {
-        if (!errors.name && !errors.difficulty && !errors.duration && !errors.season && !errors.countries) {
-            dispatch(createActivity(activityDate));
-            setActivityDate({
-                name: '',
-                difficulty: '',
-                duration: '',
-                season: '',
-                countries: []
-            });
-        } else {
-            alert('Complete all data correctly');
-        }
+        dispatch(createActivity(activityDate));
+        setActivityDate({
+            name: '',
+            difficulty: '',
+            duration: '',
+            season: '',
+            countries: []
+        });
+        // } else {
+        //     alert('Complete all data correctly');
+        // }
     }
 
     const isFormValid = () => {
-        // const currentErrors = validations(activityDate);
-        return !errors.name && !errors.difficulty && !errors.duration && !errors.season && !errors.countries
+        return errors.name === "" && errors.difficulty === "" && errors.duration === "" && errors.season === "" && errors.countries === ""
     }
+    console.log("ESTE ES EL ESTADO ERRORS:", errors);
+
+    console.log("ESTE ES EL VALOR DE LA FUNCION isFormValid:", isFormValid());
 
     return (
         <form className="formActivity" onSubmit={handleSubmit}>
