@@ -1,11 +1,11 @@
 export default (activityDate, fieldName, errors) => {
-  
-  const lettersOnlyRegex = /^[a-zA-Z]+$/;
+
+  const lettersOnlyRegex = /^[a-zA-Z_]+( [a-zA-Z_]+)*$/;
   if (fieldName === "name") {
     if (!activityDate.name) {
       return { ...errors, name: "The activity must have a name" };
     } else if (!lettersOnlyRegex.test(activityDate.name)) {
-      return { ...errors, name: "Only letters allowed" };
+      return { ...errors, name: "Cannot contain number" };
     } else {
       return { ...errors, name: "" };
     }

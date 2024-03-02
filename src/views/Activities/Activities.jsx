@@ -5,10 +5,9 @@ import { useEffect } from 'react'
 import SearchBar from "../../components/SearchBar/SearchBar"
 import ContainerActivities from "../../components/CardContainer/ContainerActivities"
 import CreateActivity from "../../components/Form/CreateActivity"
-import { findAllActivities, findNameActivities, cleanerState } from '../../redux/actions'
+import { findAllActivities, findNameActivities, cleanerState, loader } from '../../redux/actions'
 
 const Activities = () => {
-  const activities = useSelector(state => state.activities)
   const isLoading = useSelector(state => state.isLoading)
   const dispatch = useDispatch()
 
@@ -17,6 +16,7 @@ const Activities = () => {
   }
 
   useEffect(() => {
+    dispatch(loader(false));
     return () => { dispatch(cleanerState("activities")) }
   }, [])
 
@@ -34,7 +34,6 @@ const Activities = () => {
         <SearchBar action={findNameActivities} />
       </div>
     </div>
-
   )
 }
 
