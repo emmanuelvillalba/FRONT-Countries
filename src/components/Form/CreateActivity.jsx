@@ -46,9 +46,6 @@ const FormActivity = () => {
     const isFormValid = () => {
         return errors.name === "" && errors.difficulty === "" && errors.duration === "" && errors.season === "" && errors.countries === ""
     }
-    console.log("ESTE ES EL ESTADO ERRORS:", errors);
-
-    console.log("ESTE ES EL VALOR DE LA FUNCION isFormValid:", isFormValid());
 
     return (
         <form className="formActivity" onSubmit={handleSubmit}>
@@ -89,7 +86,6 @@ const FormActivity = () => {
             <button className="btn-createActivity" type="submit" disabled={!isFormValid()}>Create Activity</button>
         </form>
     );
-
 }
 
 export default FormActivity;
