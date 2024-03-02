@@ -17,10 +17,6 @@ const Activities = () => {
   }
 
   useEffect(() => {
-    if (activities.length === 0) {
-      dispatch(findAllActivities())
-    }
-    console.log("Estado activities:", activities, "length:", activities.length);
     return () => { dispatch(cleanerState("activities")) }
   }, [])
 
