@@ -1,5 +1,5 @@
 export default (activityDate, fieldName, errors) => {
-  const lettersOnlyRegex = /^[A-Za-z]+(?:[ _.:][A-Za-z]+)*[ _.:]?$/;
+  const lettersOnlyRegex = /^[A-Za-z]+(?:[ _.]|:?[A-Za-z]+)*[ _.:]?$/;
   if (fieldName === "name") {
     if (!activityDate.name) {
       return { ...errors, name: "The activity must have a name" };
