@@ -4,7 +4,7 @@ import {
   filterContinent,
   filterActivity,
   cleanerFilter,
-} from "../../redux/actions";
+} from "../../redux/actions/filters/actions-filters";
 
 export const handleAlphabetical = (event, dispatch, setCurrentPage) => {
   dispatch(orderAlphabetical(event.target.value));

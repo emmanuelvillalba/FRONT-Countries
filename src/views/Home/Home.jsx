@@ -13,9 +13,9 @@ import {
   handleFilterActivity,
   handlerCleaner
 } from "../../components/Filters/filters"
-import {
-  findAllCountries, findNameCountries, findAllActivities, cleanerState
-} from '../../redux/actions'
+import { findAllCountries, findNameCountries } from '../../redux/actions/countries/actions-countries'
+import { findAllActivities } from '../../redux/actions/activities/actions-activities'
+import { cleanerState } from '../../redux/actions/stateManagement/actions-stateManagement'
 
 const Home = () => {
 

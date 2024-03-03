@@ -13,7 +13,7 @@ import {
   DELETE_ACTIVITY,
   CLEANER_STATE,
   LOADER,
-} from "./actions-types";
+} from "../actions-types/actions-types";
 
 const initialState = {
   countries: [],
@@ -32,17 +32,23 @@ const rootReducer = (state = initialState, { type, payload }) => {
         allCountries: payload,
       };
 
-    case FIND_ALLACTIVITY:
-      return {
-        ...state,
-        activities: payload,
-      };
-
     case FIND_NAMECOUNTRY:
       return {
         ...state,
         countries: payload,
         allCountries: payload,
+      };
+
+    case FIND_DETAIL:
+      return {
+        ...state,
+        detail: payload,
+      };
+
+    case FIND_ALLACTIVITY:
+      return {
+        ...state,
+        activities: payload,
       };
 
     case FIND_NAMEACTIVITY:
@@ -51,16 +57,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
         activities: payload,
       };
 
-    case CLEANER_FILTER:
+    case CREATE_ACTIVITY:
       return {
         ...state,
-        countries: state.allCountries,
+        activities: payload,
       };
 
-    case FIND_DETAIL:
+    case DELETE_ACTIVITY:
       return {
         ...state,
-        detail: payload,
+        activities: payload,
       };
 
     case ORDER_ALPHABETICAL:
@@ -94,33 +100,41 @@ const rootReducer = (state = initialState, { type, payload }) => {
       const filteredCountries = copyAllCountries.filter(
         (country) => country.continent === payload
       );
-      return {
-        ...state,
-        countries:
-          filteredCountries.length > 0 ? filteredCountries : copyAllCountries,
-      };
+      if (filteredCountries.length > 0) {
+        return {
+          ...state,
+          countries: filteredCountries,
+        };
+      } else {
+        alert(`No matches found to filter by continent ${payload}`)
+        return {
+          ...state,
+          countries: copyAllCountries,
+        };
+      }
 
     case FILTER_ACTIVITY:
       const copy2AllCountries = [...state.allCountries];
       const filteredActivity = copy2AllCountries.filter((country) =>
         country.Activities.some((activity) => activity.name === payload)
       );
-      return {
-        ...state,
-        countries:
-          filteredActivity.length > 0 ? filteredActivity : copy2AllCountries,
-      };
+      if (filteredActivity.length > 0) {
+        return {
+          ...state,
+          countries: filteredActivity,
+        };
+      } else {
+        alert(`No matches found to filter by activity ${payload}`)
+        return {
+          ...state,
+          countries: copy2AllCountries,
+        };
+      }
 
-    case CREATE_ACTIVITY:
+    case CLEANER_FILTER:
       return {
         ...state,
-        activities: payload,
-      };
-
-    case DELETE_ACTIVITY:
-      return {
-        ...state,
-        activities: payload,
+        countries: state.allCountries,
       };
 
     case CLEANER_STATE:
