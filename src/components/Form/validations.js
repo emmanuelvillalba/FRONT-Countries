@@ -1,5 +1,4 @@
 export default (activityDate, fieldName, errors) => {
-
   const lettersOnlyRegex = /^[a-zA-Z_]+( [a-zA-Z_]+)*$/;
   if (fieldName === "name") {
     if (!activityDate.name) {
@@ -29,6 +28,8 @@ export default (activityDate, fieldName, errors) => {
       return { ...errors, duration: "Enter a number" };
     } else if (activityDate.duration < 1 || activityDate.duration > 72) {
       return { ...errors, duration: "Hour range: min 1 - max 72" };
+    } else if (!integerRegex.test(activityDate.duration)) {
+      return { ...errors, duration: "The number must be integer" };
     } else {
       return { ...errors, duration: "" };
     }
