@@ -1,10 +1,13 @@
 export default (activityDate, fieldName, errors) => {
-  const lettersOnlyRegex = /^[A-Za-z]+(?:[ _.-:][A-Za-z]+)*$/;
+  const lettersOnlyRegex = /^[A-Za-z]+(?:[ _.:][A-Za-z]+)*$/;
   if (fieldName === "name") {
     if (!activityDate.name) {
       return { ...errors, name: "The activity must have a name" };
     } else if (!lettersOnlyRegex.test(activityDate.name)) {
-      return { ...errors, name: "Cannot contain numbers or symbols(exception: _ - : .)" };
+      return {
+        ...errors,
+        name: "Cannot contain numbers or symbols(exception _ : .)",
+      };
     } else {
       return { ...errors, name: "" };
     }
@@ -51,7 +54,7 @@ export default (activityDate, fieldName, errors) => {
       return {
         ...errors,
         countries:
-          "Incorrect format. It should be: 'abc, def, ghi'. Cannot contain numbers or symbols",
+          "Incorrect format\nIt should be: 'abc, def, ghi'\nCannot contain numbers or symbols",
       };
     } else {
       return { ...errors, countries: "" };
