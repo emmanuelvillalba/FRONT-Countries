@@ -43,9 +43,16 @@ export default (activityDate, fieldName, errors) => {
     }
   }
 
+  const regex3letterCommaSpace = /^([a-zA-Z]{3}, )*[a-zA-Z]{3}$/i;
   if (fieldName === "countries") {
     if (!activityDate.countries || activityDate.countries.length === 0) {
       return { ...errors, countries: "Assign at least one country ID" };
+    } else if (!regex3letterCommaSpace.test(activityDate.countries)) {
+      return {
+        ...errors,
+        countries:
+          "Incorrect format. It should be: 'abc, def, ghi'. Cannot contain numbers or symbols",
+      };
     } else {
       return { ...errors, countries: "" };
     }
