@@ -54,7 +54,7 @@ export default (activityDate, fieldName, errors) => {
       return {
         ...errors,
         countries:
-          "Incorrect format\nIt should be: 'abc, def, ghi'\nCannot contain numbers or symbols",
+          "Incorrect format. It should be:'abc, def, ghi'. Cannot contain numbers or symbols",
       };
     } else {
       return { ...errors, countries: "" };
