@@ -46,7 +46,7 @@ export default (activityDate, fieldName, errors) => {
     }
   }
 
-  const letterCommaSpaceRegex = /^([a-zA-Z]{3}, )*[a-zA-Z]{3}$/i;
+  const letterCommaSpaceRegex = /^([a-zA-Z]{3},)*[a-zA-Z]{3}$/i;
   if (fieldName === "countries") {
     if (!activityDate.countries || activityDate.countries.length === 0) {
       return { ...errors, countries: "Assign at least one country ID" };
