@@ -81,7 +81,9 @@ const FormActivity = () => {
             <div className='formCountriesID'>
                 <label>Countries ID:</label>
                 <input type="text" name="countries" onChange={handleChange} onBlur={handleError} value={activityDate.countries} placeholder="Enter country ID (3 letters)" />
-                {event.target.name === "countries" && errors.countries && <p>{errors.countries}</p>}
+                {event.target.name === "countries" && errors.countries && (
+                    <p dangerouslySetInnerHTML={{ __html: errors.countries }}></p>
+                )}
             </div>
             <button className="btn-createActivity" type="submit" disabled={!isFormValid()}>Create Activity</button>
         </form>
