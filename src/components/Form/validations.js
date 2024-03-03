@@ -1,10 +1,10 @@
 export default (activityDate, fieldName, errors) => {
-  const lettersOnlyRegex = /^[a-zA-Z._-]+( [a-zA-Z._-]+)*$/;
+  const lettersOnlyRegex = /^[A-Za-z]+(?:[ _.-:][A-Za-z]+)*$/;
   if (fieldName === "name") {
     if (!activityDate.name) {
       return { ...errors, name: "The activity must have a name" };
     } else if (!lettersOnlyRegex.test(activityDate.name)) {
-      return { ...errors, name: "Cannot contain numbers or symbols. Exception: points, dashes and underlines " };
+      return { ...errors, name: "Cannot contain numbers or symbols(exception: _ - : .)" };
     } else {
       return { ...errors, name: "" };
     }
