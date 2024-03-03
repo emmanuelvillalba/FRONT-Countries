@@ -25,7 +25,7 @@ const Details = () => {
     <div>
       {isLoading ? (<div className="loader"></div>
       ) : (
-        <div class="card">
+        <div className="card">
           <img src={detail.flag} alt="image" />
           <div>
             <h2>Name: {detail.name}</h2>
