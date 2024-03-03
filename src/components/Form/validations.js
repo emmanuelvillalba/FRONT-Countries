@@ -1,10 +1,10 @@
 export default (activityDate, fieldName, errors) => {
-  const lettersOnlyRegex = /^[a-zA-Z_]+( [a-zA-Z_]+)*$/;
+  const lettersOnlyRegex = /^[a-zA-Z._-]+( [a-zA-Z._-]+)*$/;
   if (fieldName === "name") {
     if (!activityDate.name) {
       return { ...errors, name: "The activity must have a name" };
     } else if (!lettersOnlyRegex.test(activityDate.name)) {
-      return { ...errors, name: "Cannot contain number" };
+      return { ...errors, name: "Cannot contain numbers or symbols. Exception: points, dashes and underlines " };
     } else {
       return { ...errors, name: "" };
     }
@@ -43,11 +43,11 @@ export default (activityDate, fieldName, errors) => {
     }
   }
 
-  const regex3letterCommaSpace = /^([a-zA-Z]{3}, )*[a-zA-Z]{3}$/i;
+  const letterCommaSpaceRegex = /^([a-zA-Z]{3}, )*[a-zA-Z]{3}$/i;
   if (fieldName === "countries") {
     if (!activityDate.countries || activityDate.countries.length === 0) {
       return { ...errors, countries: "Assign at least one country ID" };
-    } else if (!regex3letterCommaSpace.test(activityDate.countries)) {
+    } else if (!letterCommaSpaceRegex.test(activityDate.countries)) {
       return {
         ...errors,
         countries:
