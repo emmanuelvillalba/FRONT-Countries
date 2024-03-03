@@ -1,5 +1,5 @@
 export default (activityDate, fieldName, errors) => {
-  const lettersOnlyRegex = /^[A-Za-z]+(?:[ _.:][A-Za-z]+)*$/;
+  const lettersOnlyRegex = /^[A-Za-z]+(?:[ _.:][A-Za-z]+)*[ _.:]?$/;
   if (fieldName === "name") {
     if (!activityDate.name) {
       return { ...errors, name: "The activity must have a name" };
@@ -54,7 +54,7 @@ export default (activityDate, fieldName, errors) => {
       return {
         ...errors,
         countries:
-          "Incorrect format. It should be:'abc, def, ghi'. Cannot contain numbers or symbols",
+          "Incorrect format. It should be: 'abc,def,ghi' no spaces. Cannot contain numbers or symbols",
       };
     } else {
       return { ...errors, countries: "" };
