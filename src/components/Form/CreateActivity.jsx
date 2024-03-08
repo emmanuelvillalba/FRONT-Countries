@@ -16,7 +16,7 @@ const FormActivity = () => {
         season: "",
         countries: ""
     });
-    console.log(activityDate.countries);
+    console.log(activityDate);
 
     const [errors, setErrors] = useState({});
     const [filteredCountries, setFilteredCountries] = useState([]);
@@ -30,10 +30,10 @@ const FormActivity = () => {
     }
 
     const handleSelectChange = (event) => {
-        setActivityDate({
-            ...activityDate,
-            countries: prevState.countries + "," + event.target.value
-        });
+        setActivityDate((prevState) => ({
+            ...prevState,
+            countries: prevState.countries ? prevState.countries + "," + event.target.value : event.target.value
+        }));
         setInputValue('');
         setFilteredCountries([]);
     };
