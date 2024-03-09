@@ -16,11 +16,10 @@ const FormActivity = () => {
         season: "",
         countries: ""
     });
-    console.log(activityDate);
 
     const [errors, setErrors] = useState({});
     const [filteredCountries, setFilteredCountries] = useState([]);
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState("");
 
     const handleChange = (event) => {
         setActivityDate({
@@ -55,11 +54,11 @@ const FormActivity = () => {
         event.preventDefault();
         dispatch(createActivity(activityDate));
         setActivityDate({
-            name: '',
-            difficulty: '',
-            duration: '',
-            season: '',
-            countries: []
+            name: "",
+            difficulty: "",
+            duration: "",
+            season: "",
+            countries: ""
         });
     }
 
@@ -129,7 +128,7 @@ const FormActivity = () => {
                 </select>
                 {errors.countries && <p>{errors.countries}</p>}
             </div>
-            <button className="btn-createActivity" type="submit" disabled={!isFormValid()}>Create Activity</button>
+            <button className="btn-createActivity" type="submit" >Create Activity</button>
         </form>
     );
 }
