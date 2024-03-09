@@ -33,7 +33,7 @@ const FormActivity = () => {
             ...prevState,
             countries: prevState.countries ? prevState.countries + "," + event.target.value : event.target.value
         }));
-        setInputValue('');
+        setInputValue("");
         setFilteredCountries([]);
     };
 
