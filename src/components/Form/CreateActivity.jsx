@@ -17,13 +17,7 @@ const FormActivity = () => {
         countries: ""
     });
 
-    const [errors, setErrors] = useState({
-        name,
-        difficulty,
-        duration,
-        season,
-        countries
-    });
+    const [errors, setErrors] = useState({});
     const [filteredCountries, setFilteredCountries] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
@@ -134,7 +128,7 @@ const FormActivity = () => {
                 </select>
                 {errors.countries && <p>{errors.countries}</p>}
             </div>
-            <button className="btn-createActivity" type="submit" disable={!isFormValid()} >Create Activity</button>
+            <button className="btn-createActivity" type="submit" >Create Activity</button>
         </form>
     );
 }
