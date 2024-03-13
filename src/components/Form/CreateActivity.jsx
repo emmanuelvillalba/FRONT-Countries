@@ -17,7 +17,13 @@ const FormActivity = () => {
         countries: ""
     });
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({
+        name,
+        difficulty,
+        duration,
+        season,
+        countries
+    });
     const [filteredCountries, setFilteredCountries] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
