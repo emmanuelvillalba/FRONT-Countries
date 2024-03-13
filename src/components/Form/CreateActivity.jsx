@@ -128,7 +128,7 @@ const FormActivity = () => {
                 </select>
                 {errors.countries && <p>{errors.countries}</p>}
             </div>
-            <button className="btn-createActivity" type="submit" disabled={!isFormValid} >Create Activity</button>
+            <button className="btn-createActivity" type="submit" disable={!isFormValid()} >Create Activity</button>
         </form>
     );
 }
